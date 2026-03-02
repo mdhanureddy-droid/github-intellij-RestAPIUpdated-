@@ -58,6 +58,10 @@ RemoteSystemsTempFiles/
 test-output/
 testng-results.xml
 
+# Allure Reports
+allure-results/
+allure-report/
+
 # OS
 .DS_Store
 Thumbs.db
@@ -67,3 +71,6 @@ Thumbs.db
 !src/main/resources/*.properties
 credentials.json
 secrets.json
+
+# Config with credentials
+config.properties
