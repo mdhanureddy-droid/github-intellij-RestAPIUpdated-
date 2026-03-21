@@ -7,12 +7,17 @@ import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DataDrivenReview {
+
+    private static final Logger logger = LogManager.getLogger(DataDrivenReview.class);
 
     public ArrayList<String> getData(String testcaseName, String sheetName) throws IOException {
         ArrayList<String> data = new ArrayList<String>();
@@ -39,7 +44,7 @@ public class DataDrivenReview {
 
                     k++;
                 }
-                System.out.println(column);
+                logger.info("TestCases column index: {}", column);
 
                 while (rows.hasNext()) {
                     Row r = rows.next();
@@ -64,7 +69,7 @@ public class DataDrivenReview {
     public static void main(String[] args) throws IOException {
         DataDrivenReview d = new DataDrivenReview();
         ArrayList<String> data = d.getData("Purchase", "testdata");
-        System.out.println(data);
+        logger.info("Retrieved data: {}", data);
     }
 
 }
